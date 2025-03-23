@@ -23,6 +23,7 @@ DOMAIN-SUFFIX,tmall.com
 DOMAIN-SUFFIX,aliyun.com
 DOMAIN-SUFFIX,alipay.com
 DOMAIN-SUFFIX,alicdn.com
+DOMAIN,checkip.dyndns.com
 
 # 国内DNS
 IP-CIDR,119.29.29.29/32,no-resolve
