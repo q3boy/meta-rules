@@ -28,6 +28,7 @@ DOMAIN,www.cloudflare.com
 
 # 群晖
 DOMAIN-SUFFIX,quickconnect.to
+DOMAIN,q3nas.myds.me
 
 # 国内DNS
 IP-CIDR,119.29.29.29/32,no-resolve
