@@ -1,0 +1,28 @@
+# 直连
+
+# mx动漫
+DOMAIN-KEYWORD,mxdm
+DOMAIN-KEYWORD,yinghua
+
+# 常用网站
+DOMAIN-SUFFIX,baidu.com
+DOMAIN-SUFFIX,qq.com
+DOMAIN-SUFFIX,qpic.com
+DOMAIN-SUFFIX,tencent.com
+DOMAIN-SUFFIX,wechat.com
+DOMAIN-SUFFIX,weixin.com
+DOMAIN-SUFFIX,wechatapp.com
+DOMAIN-SUFFIX,jd.com
+DOMAIN-SUFFIX,360buyingimg.com
+DOMAIN-SUFFIX,taobao.com
+DOMAIN-SUFFIX,tmall.com
+DOMAIN-SUFFIX,aliyun.com
+DOMAIN-SUFFIX,alipay.com
+DOMAIN-SUFFIX,alicdn.com
+
+# 国内DNS
+IP-CIDR,119.29.29.29/32
+IP-CIDR,223.5.5.5/32
+# 运营商DNS
+IP-CIDR,202.101.172.35/32
+IP-CIDR,202.101.172.47/32
