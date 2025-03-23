@@ -254,6 +254,7 @@ proxy-groups:
 rules:
   - RULE-SET,my_direct,🎯 直连
   - RULE-SET,my_block,🛑 广告
+  - RULE-SET,my_proxy_sg,🚀 默认代理
   - RULE-SET,my_proxy,🚀 默认代理
   - RULE-SET,ads_domain,🛑 广告
   - RULE-SET,private_ip,🎯 直连,no-resolve
@@ -306,9 +307,10 @@ rule-providers:
   private_ip: { <<: *ip, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs"}
 
   # my rules
-  my_proxy: { <<: *class, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/q3boy/meta-rules/refs/heads/master/use-proxy.list"}
-  my_direct: { <<: *class, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/q3boy/meta-rules/refs/heads/master/direct.list"}
-  my_block: { <<: *class, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/q3boy/meta-rules/refs/heads/master/block.list"}
+  my_proxy: { <<: *class, url: "{{GHPROXY_URL}}https://github.com/q3boy/meta-rules/raw/refs/heads/main/use-proxy.list"}
+  my_proxy_sg: { <<: *class, url: "{{GHPROXY_URL}}https://github.com/q3boy/meta-rules/raw/refs/heads/main/use-proxy-sg.list"}
+  my_direct: { <<: *class, url: "{{GHPROXY_URL}}https://github.com/q3boy/meta-rules/raw/refs/heads/main/direct.list"}
+  my_block: { <<: *class, url: "{{GHPROXY_URL}}https://github.com/q3boy/meta-rules/raw/refs/heads/main/block.list"}
 
   # proxylite: { <<: *class, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/master/ProxyLite.list"}
 
