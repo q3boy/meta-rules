@@ -1,6 +1,7 @@
 # 默认节点
 DOMAIN,sg.q3boy.com
 DOMAIN,n8n.q3boy.com
+DOMAIN-SUFFIX,www.qichiyu.com
 # 国外DNS
 IP-CIDR,8.8.8.8/32,no-resolve
 IP-CIDR,8.8.4.4/32,no-resolve

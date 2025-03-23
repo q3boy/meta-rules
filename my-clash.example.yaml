@@ -52,7 +52,7 @@ profile:
 # 数据库
 # geodata-loader: memconservative/standard
 # geodata-mode: true/false
-geo-auto-update: false
+geo-auto-update: true
 geo-update-interval: 24
 geox-url:
   geoip: "{{GHPROXY_URL}}https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat"
