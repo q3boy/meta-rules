@@ -26,6 +26,9 @@ DOMAIN-SUFFIX,alicdn.com
 DOMAIN,checkip.dyndns.com
 DOMAIN,www.cloudflare.com
 
+# 群晖
+DOMAIN-SUFFIX,quickconnect.to
+
 # 国内DNS
 IP-CIDR,119.29.29.29/32,no-resolve
 IP-CIDR,223.5.5.5/32,no-resolve
