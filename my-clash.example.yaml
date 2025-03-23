@@ -65,7 +65,7 @@ external-controller: 0.0.0.0:9090
 secret: "{{MY_SECRET_KEY}}"
 external-ui: "/etc/mihomo/run/ui"
 external-ui-name: zashboard
-external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
+external-ui-url: "{{GHPROXY_URL}}https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
 
 # 嗅探
 sniffer:
@@ -252,6 +252,9 @@ proxy-groups:
 # 规则匹配
 # 此规则部分没有做防泄露处理，因为弊严重大于利！
 rules:
+  - RULE-SET,my_direct,🎯 直连
+  - RULE-SET,my_block,🛑 广告
+  - RULE-SET,my_proxy,🚀 默认代理
   - RULE-SET,ads_domain,🛑 广告
   - RULE-SET,private_ip,🎯 直连,no-resolve
   - RULE-SET,private_domain,直连

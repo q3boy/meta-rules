@@ -1,5 +1,9 @@
 # 直连
 
+# 局域网
+IP-CIDR,192.168.0.0/16,no-resolve
+IP-CIDR,127.0.0.1/32,no-resolve
+
 # mx动漫
 DOMAIN-KEYWORD,mxdm
 DOMAIN-KEYWORD,yinghua
@@ -21,8 +25,8 @@ DOMAIN-SUFFIX,alipay.com
 DOMAIN-SUFFIX,alicdn.com
 
 # 国内DNS
-IP-CIDR,119.29.29.29/32
-IP-CIDR,223.5.5.5/32
+IP-CIDR,119.29.29.29/32,no-resolve
+IP-CIDR,223.5.5.5/32,no-resolve
 # 运营商DNS
-IP-CIDR,202.101.172.35/32
-IP-CIDR,202.101.172.47/32
+IP-CIDR,202.101.172.35/32,no-resolve
+IP-CIDR,202.101.172.47/32,no-resolve
