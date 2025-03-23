@@ -27,7 +27,9 @@ DOMAIN,checkip.dyndns.com
 DOMAIN,www.cloudflare.com
 
 # google play
-DOMAIN,xn--ngstr-lra8j.com
+DOMAIN-SUFFIX,xn--ngstr-lra8j.com
+DOMAIN-SUFFIX,services.googleapis.cn
+
 
 # 群晖
 DOMAIN-SUFFIX,quickconnect.to
