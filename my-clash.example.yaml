@@ -1,7 +1,7 @@
 # 机场订阅
 proxy-providers:
   ByWave:
-    url: "{{MY_SUBSCRIPTION_URL}}"
+    url: "{{BYWAVE_SUBSCRIPTION_URL}}"
     path: "./proxies/bywave.yaml"
     type: http
     interval: 86400
@@ -20,7 +20,26 @@ proxy-providers:
       down: "1000 Mbps"
       up: "50 mbps"
       skip-cert-verify: true
-
+  SsrDog:
+    url: "{{SSRDOG_SUBSCRIPTION_URL}}"
+    path: "./proxies/ssrdog.yaml"
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+    proxy: 直连
+    header:
+      User-Agent:
+        - "Clash"
+        - "mihomo"
+        - "Clash.meta"
+    override:
+      udp: true
+      down: "1000 Mbps"
+      up: "50 mbps"
+      skip-cert-verify: true
 # 节点信息
 proxies:
   - {name: 直连, type: direct, udp: true}
@@ -209,7 +228,7 @@ filtersg: &filtersg {include-all: true, filter: "(?i)新|🇸🇬|sg|singapore|s
 filtertw: &filtertw {include-all: true, filter: "(?i)台|🇹🇼|tw|taiwan|taiwanese"}
 filterjp: &filterjp {include-all: true, filter: "(?i)日|🇯🇵|jp|japan"}
 filterus: &filterus {include-all: true, filter: "(?i)美|🇺🇸|us|unitedstates|united states"}
-filterother: &filterother {include-all: true, filter: "^(?!.*(🇭🇰|🇯🇵|🇸🇬|🇹🇼|🇺🇸|hk|jp|sg|tw|us|台|日|新|美|港)).*$"}
+filterother: &filterother {include-all: true, filter: "^(?!.*(Traffic Reset|Expire Date|[0-9\\.]+ GB|港|🇭🇰|hk|hongkong|hong kong|新|🇸🇬|sg|singapore|singaporean|台|🇹🇼|tw|Taiwan|taiwanese|日|🇯🇵|jp|japan|美|🇺🇸|us|unitedstates|united states)).*$"}
 
 proxy-groups:
   - {name: 🚀 默认代理, type: select, proxies: [🇭🇰 香港, 🇹🇼 台湾, 🇸🇬 新加坡, 🇯🇵 日本, 🇺🇸 美国, 🇺🇳 其它, 🌐 全部节点, 直连]}
