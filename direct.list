@@ -42,6 +42,7 @@ DOMAIN,checkip.synology.com
 # istat ip 检测
 DOMAIN,ip-api.istatmenus.app
 DOMAIN,ip.istatmenus.app
+DOMAIN,ip.istatmenus.app
 
 # plex
 DOMAIN-SUFFIX,plex.tv
