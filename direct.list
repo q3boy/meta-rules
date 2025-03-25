@@ -39,6 +39,8 @@ DOMAIN-SUFFIX,synology.com
 DOMAIN,q3nas.myds.me
 DOMAIN,checkip.synology.com
 
+# plex
+DOMAIN-SUFFIX,plex.tv
 
 # 国内DNS
 IP-CIDR,119.29.29.29/32,no-resolve
