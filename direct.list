@@ -30,6 +30,8 @@ DOMAIN,www.cloudflare.com
 DOMAIN-SUFFIX,xn--ngstr-lra8j.com
 DOMAIN-SUFFIX,services.googleapis.cn
 
+# my domain
+DOMAIN-SUFFIX:q3boy.com
 
 # 群晖
 DOMAIN-SUFFIX,quickconnect.to
