@@ -1,3 +1,6 @@
 # 新加坡节点
 DOMAIN,sg.q3boy.com
 DOMAIN,n8n.q3boy.com
+
+# my domain
+# AND,((DOMAIN,sg.q3boy.com),(NOT,((DST-PORT,22))))

@@ -275,10 +275,10 @@ proxy-groups:
 # 规则匹配
 # 此规则部分没有做防泄露处理，因为弊严重大于利！
 rules:
-  - RULE-SET,my_direct,🎯 直连
   - RULE-SET,my_block,🛑 广告
   - RULE-SET,my_proxy_sg,🚀 默认代理
   - RULE-SET,my_proxy,🚀 默认代理
+  - RULE-SET,my_direct,🎯 直连
   - RULE-SET,ads_domain,🛑 广告
   - RULE-SET,ads_awavenue,🛑 广告
   - RULE-SET,private_ip,🎯 直连,no-resolve
