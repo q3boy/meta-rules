@@ -280,6 +280,7 @@ rules:
   - RULE-SET,my_proxy_sg,🚀 默认代理
   - RULE-SET,my_proxy,🚀 默认代理
   - RULE-SET,ads_domain,🛑 广告
+  - RULE-SET,ads_awavenue,🛑 广告
   - RULE-SET,private_ip,🎯 直连,no-resolve
   - RULE-SET,private_domain,直连
   - RULE-SET,apple_cn_domain,🍎 Apple 中国
@@ -420,6 +421,7 @@ rule-providers:
   porn_class_domain: { <<: *class, url: "{{GHPROXY_URL}}https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/classical/category-porn.list" }
 
   # 广告
+  ads_awavenue: { <<: *domain, url: "{{GHPROXY_URL}}https://github.com/TG-Twilight/AWAvenue-Ads-Rule/raw/refs/heads/main/Filters/AWAvenue-Ads-Rule-Clash.mrs" }
   ads_domain: { <<: *domain, url: "{{GHPROXY_URL}}https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ads-all.mrs" }
 
 # mrs 转换: mihomo convert-ruleset [domain|ip] [yaml|text] source.yaml tartet.mrs
