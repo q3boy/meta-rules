@@ -35,7 +35,7 @@ DOMAIN-SUFFIX,xn--ngstr-lra8j.com
 DOMAIN-SUFFIX,services.googleapis.cn
 
 # my domain
-DOMAIN-SUFFIX,q3boy.com
+AND,((DOMAIN-SUFFIX,q3boy.com),(NOT,((DST-PORT,22))))
 
 # 群晖
 DOMAIN-SUFFIX,quickconnect.to
