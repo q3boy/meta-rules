@@ -60,8 +60,8 @@ mode: "rule"
 find-process-mode: 'off'
 # interface-name: en0
 global-client-fingerprint: chrome
-keep-alive-idle: 600
-keep-alive-interval: 15
+keep-alive-idle: 3600
+keep-alive-interval: 60
 disable-keep-alive: false
 profile:
   store-selected: true
@@ -69,8 +69,10 @@ profile:
 
 
 # 数据库
-# geodata-loader: memconservative/standard
-# geodata-mode: true/false
+# geodata-loader: standard
+# geodata-loader: memconservative
+# geodata-mode: true
+# geodata-mode: false
 geo-auto-update: true
 geo-update-interval: 24
 geox-url:
