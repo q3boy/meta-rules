@@ -10,6 +10,7 @@ SRC-PORT,6881-6999
 # mx动漫
 DOMAIN-KEYWORD,mxdm
 DOMAIN-KEYWORD,yinghua
+DOMAIN,v16m-default.akamaized.net
 
 # 常用网站
 DOMAIN-SUFFIX,baidu.com
