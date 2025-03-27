@@ -235,10 +235,6 @@ anchors:
   filterus: &filterus {include-all: true, filter: "(?i)美国"}
   filterother: &filterother {include-all: true, filter: "^(?!.*(香港|新加坡|台湾|日本|美国)).*$"}
 
-  ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
-  domain: &domain {type: http, interval: 86400, behavior: domain, format: mrs}
-  class: &class {type: http, interval: 86400, behavior: classical, format: text}
-
 proxy-groups:
   - {name: 🚀 默认代理, type: select, proxies: [🇭🇰 香港, 🇹🇼 台湾, 🇸🇬 新加坡, 🇯🇵 日本, 🇺🇸 美国, 🇺🇳 其它, 🌐 全部节点, 直连]}
   - {<<: *prads, name: 🛑 广告}
