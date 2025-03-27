@@ -227,12 +227,12 @@ prjp: &prjp {type: select, proxies: [🇯🇵 日本, 🚀 默认代理, 🇭�
 prdirect: &prdirect {type: select, proxies: [直连, 🚀 默认代理, 🇭🇰 香港, 🇹🇼 台湾, 🇸🇬 新加坡, 🇯🇵 日本, 🇺🇸 美国, 🇺🇳 其它, 🌐 全部节点]}
 prads: &prads {type: select, proxies: [REJECT, 直连, 🚀 默认代理, 🌐 全部节点]}
 
-filterhk: &filterhk {include-all: true, filter: "(?i)港|🇭🇰|hk|hongkong|hong kong"}
-filtersg: &filtersg {include-all: true, filter: "(?i)新|🇸🇬|sg|singapore|singaporean"}
-filtertw: &filtertw {include-all: true, filter: "(?i)台|🇹🇼|tw|taiwan|taiwanese"}
-filterjp: &filterjp {include-all: true, filter: "(?i)日|🇯🇵|jp|japan"}
-filterus: &filterus {include-all: true, filter: "(?i)美|🇺🇸|us|unitedstates|united states"}
-filterother: &filterother {include-all: true, filter: "^(?!.*(Traffic Reset|Expire Date|[0-9\\.]+ GB|港|🇭🇰|hk|hongkong|hong kong|新|🇸🇬|sg|singapore|singaporean|台|🇹🇼|tw|Taiwan|taiwanese|日|🇯🇵|jp|japan|美|🇺🇸|us|unitedstates|united states)).*$"}
+filterhk: &filterhk {include-all: true, filter: "(?i)香港"}
+filtersg: &filtersg {include-all: true, filter: "(?i)新加坡"}
+filtertw: &filtertw {include-all: true, filter: "(?i)台湾"}
+filterjp: &filterjp {include-all: true, filter: "(?i)日本"}
+filterus: &filterus {include-all: true, filter: "(?i)美国"}
+filterother: &filterother {include-all: true, filter: "^(?!.*(香港|新加坡|台湾|日本|美国)).*$"}
 
 proxy-groups:
   - {name: 🚀 默认代理, type: select, proxies: [🇭🇰 香港, 🇹🇼 台湾, 🇸🇬 新加坡, 🇯🇵 日本, 🇺🇸 美国, 🇺🇳 其它, 🌐 全部节点, 直连]}
