@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "build": "node mihomo.js",
+    "test": "singbox\\sing-box check -c sing-box.json",
+    "start": "singbox\\sing-box -c sing-box.json"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,7 @@
   },
   "homepage": "https://github.com/q3boy/meta-rules#readme",
   "dependencies": {
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.4.7",
+    "js-yaml": "^4.1.0"
   }
 }

@@ -1,0 +1,17 @@
+{
+    "editor.tabSize": 2,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "terminal.integrated.bellDuration": 1000,
+    "terminal.integrated.scrollback": 10000,
+    "files.exclude": {
+        "**/node_modules": true,
+        "**/coverage": true,
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/dist": true,
+        "**/Thumbs.db": true,
+        "**/singbox": true
+    },
+    "editor.wordWrap": "on"
+}
