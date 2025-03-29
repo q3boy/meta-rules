@@ -6,6 +6,9 @@ DOMAIN-SUFFIX,qichiyu.com
 # github
 DOMAIN,raw.githubusercontent.com
 
+# plex provider
+DOMAIN-SUFFIX,provider.plex.tv
+
 # 国外DNS
 IP-CIDR,8.8.8.8/32,no-resolve
 IP-CIDR,8.8.4.4/32,no-resolve
