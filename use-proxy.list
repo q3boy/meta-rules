@@ -10,6 +10,7 @@ DOMAIN,raw.githubusercontent.com
 DOMAIN,images.plex.tv
 DOMAIN,metadata-static.plex.tv
 DOMAIN,metadata.provider.plex.tv
+DOMAIN,images.plex.tv
 
 # 国外DNS
 IP-CIDR,8.8.8.8/32,no-resolve
