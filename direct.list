@@ -35,6 +35,7 @@ DOMAIN-SUFFIX,xn--ngstr-lra8j.com
 DOMAIN-SUFFIX,services.googleapis.cn
 
 # my domain
+DOMAIN-SUFFIX,hz.q3boycom,no-resolve
 DOMAIN-SUFFIX,q3boy.com
 
 # 群晖
