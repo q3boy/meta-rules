@@ -1,9 +1,12 @@
+require('dotenv').config()
+const { GH_PROXY_PREFIX } = process.env
 const ip_preset = {type: 'http', interval: 86400, behavior: 'ipcidr', format: 'mrs'}
 const domain_preset = {type: 'http', interval: 86400, behavior: 'domain', format: 'mrs'}
 const class_preset = {type: 'http', interval: 86400, behavior: 'classical', format: 'text'}
 
 const rules = [
   'RULE-SET,my_block,🛑 广告',
+  'RULE-SET,my_home,🏠 回家穿透',
   'RULE-SET,my_proxy_sg,🚀 默认代理',
   'RULE-SET,my_proxy,🚀 默认代理',
   'RULE-SET,my_direct,🎯 直连',
@@ -39,7 +42,7 @@ const rules = [
   'RULE-SET,games_download_domain,🎮 游戏下载',
   'RULE-SET,games_domain,🎮 游戏平台',
   'RULE-SET,porn_domain,🚀 默认代理',
-  'RULE-SET,porn_class_domain,🚀 默认代理',
+  'RULE-SET,porn_class,🚀 默认代理',
   'RULE-SET,bank_cn_domain,🎯 直连',
   'RULE-SET,gfw_domain,🚀 默认代理',
   'RULE-SET,geolocation-!cn,🚀 默认代理',
@@ -48,106 +51,101 @@ const rules = [
   'MATCH,🐟 漏网之鱼',
 ]
 
-
 const providers = {
-  private_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"},
-
-  private_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"},
-  private_ip: {...ip_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs"},
+  private_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/private.mrs"},
+  private_ip: {...ip_preset, url: GH_PROXY_PREFIX+"geoip/private.mrs"},
 
   //  my rules
-  my_proxy: {...class_preset, url: "{{GHPROXY_URL}}https://github.com/q3boy/meta-rules/raw/refs/heads/main/use-proxy.list"},
-  my_proxy_sg: {...class_preset, url: "{{GHPROXY_URL}}https://github.com/q3boy/meta-rules/raw/refs/heads/main/use-proxy-sg.list"},
-  my_direct: {...class_preset, url: "{{GHPROXY_URL}}https://github.com/q3boy/meta-rules/raw/refs/heads/main/direct.list"},
-  my_block: {...class_preset, url: "{{GHPROXY_URL}}https://github.com/q3boy/meta-rules/raw/refs/heads/main/block.list"},
-
-  //  proxylite: { <<: *class, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/master/ProxyLite.list"}
-
+  my_home: {...class_preset, url: GH_PROXY_PREFIX+"q3boy/home.list"},
+  my_proxy: {...class_preset, url: GH_PROXY_PREFIX+"q3boy/use-proxy.list"},
+  my_proxy_sg: {...class_preset, url: GH_PROXY_PREFIX+"q3boy/use-proxy-sg.list"},
+  my_direct: {...class_preset, url: GH_PROXY_PREFIX+"q3boy/direct.list"},
+  my_block: {...class_preset, url: GH_PROXY_PREFIX+"q3boy/block.list"},
 
   //  AI 服务
-  ai_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ai-chat-!cn.mrs" },
+  ai_domain: {...domain_preset, url: GH_PROXY_PREFIX+"category/ai-!cn.mrs" },
 
   //  youtube
-  youtube_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"},
+  youtube_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/youtube.mrs"},
 
   //  google
-  google_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"},
-  google_ip: {...ip_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"},
+  google_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/google.mrs"},
+  google_ip: {...ip_preset, url: GH_PROXY_PREFIX+"geoip/google.mrs"},
 
   //  facebook
-  facebook_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/facebook.mrs"},
-  facebook_ip: {...ip_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/facebook.mrs"},
+  facebook_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/facebook.mrs"},
+  facebook_ip: {...ip_preset, url: GH_PROXY_PREFIX+"geoip/facebook.mrs"},
 
   //  twitter
-  twitter_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/twitter.mrs"},
-  twitter_ip: {...ip_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/twitter.mrs"},
+  twitter_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/twitter.mrs"},
+  twitter_ip: {...ip_preset, url: GH_PROXY_PREFIX+"geoip/twitter.mrs"},
 
   //  github
-  github_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"},
+  github_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/github.mrs"},
 
   //  telegram
-  telegram_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs"},
-  telegram_ip: {...ip_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"},
+  telegram_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/telegram.mrs"},
+  telegram_ip: {...ip_preset, url: GH_PROXY_PREFIX+"geoip/telegram.mrs"},
 
   //  netflix
-  netflix_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs"},
-  netflix_ip: {...ip_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"},
+  netflix_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/netflix.mrs"},
+  netflix_ip: {...ip_preset, url: GH_PROXY_PREFIX+"geoip/netflix.mrs"},
 
   //  paypal
-  paypal_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs"},
+  paypal_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/paypal.mrs"},
 
   //  onedrive
-  onedrive_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/onedrive.mrs"},
+  onedrive_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/onedrive.mrs"},
 
   //  microsoft
-  microsoft_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"},
-  microsoft_cn_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft@cn.mrs"},
-  bing_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bing.mrs"},
-  bing_cn_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bing@cn.mrs"},
+  microsoft_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/microsoft.mrs"},
+  microsoft_cn_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/microsoft@cn.mrs"},
+  bing_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/bing.mrs"},
+  bing_cn_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/bing@cn.mrs"},
 
   //  apple
-  apple_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-cn.mrs"},
-  apple_cn_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple@cn.mrs"},
+  apple_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/apple-cn.mrs"},
+  apple_cn_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/apple@cn.mrs"},
   //  icloud
-  icloud_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/icloud.mrs"},
-  icloud_cn_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/icloud@cn.mrs"},
+  icloud_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/icloud.mrs"},
+  icloud_cn_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/icloud@cn.mrs"},
 
 
   //  speedtest
-  speedtest_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ookla-speedtest.mrs"},
+  speedtest_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/ookla-speedtest.mrs"},
 
   //  tiktok
-  tiktok_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"},
+  tiktok_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/tiktok.mrs"},
 
   //  gfw
-  gfw_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs"},
+  gfw_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/gfw.mrs"},
 
   //  非中国
-  'geolocation-!cn': {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"},
+  'geolocation-!cn': {...domain_preset, url: GH_PROXY_PREFIX+"geosite/geolocation-!cn.mrs"},
 
   //  中国
-  cn_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"},
-  cn_ip: {...ip_preset, url: "{{GHPROXY_URL}}https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"},
+  cn_domain: {...domain_preset, url: GH_PROXY_PREFIX+"geosite/cn.mrs"},
+  cn_ip: {...ip_preset, url: GH_PROXY_PREFIX+"geoip/cn.mrs"},
 
   //  银行
-  bank_cn_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-bank-cn.mrs" },
+  bank_cn_domain: {...domain_preset, url: GH_PROXY_PREFIX+"category/bank-cn.mrs" },
 
   //  游戏
-  games_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-games.mrs" },
+  games_domain: {...domain_preset, url: GH_PROXY_PREFIX+"category/games.mrs" },
 
   //  游戏 中国
-  games_cn_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-games@cn.mrs" },
+  games_cn_domain: {...domain_preset, url: GH_PROXY_PREFIX+"category/games@cn.mrs" },
 
   //  游戏 下载
-  games_download_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-game-accelerator-cn.mrs" },
+  games_download_domain: {...domain_preset, url: GH_PROXY_PREFIX+"category/game-accelerator-cn.mrs" },
 
   //  色情
-  porn_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-porn.mrs" },
-  porn_class_domain: {...class_preset, url: "{{GHPROXY_URL}}https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/classical/category-porn.list" },
+  porn_domain: {...domain_preset, url: GH_PROXY_PREFIX+"category/porn.mrs" },
+  porn_class: {...class_preset, url: GH_PROXY_PREFIX+"cls_cate/porn.list" },
 
   //  广告
-  ads_awavenue: {...domain_preset, url: "{{GHPROXY_URL}}https://github.com/TG-Twilight/AWAvenue-Ads-Rule/raw/refs/heads/main/Filters/AWAvenue-Ads-Rule-Clash.mrs" },
-  ads_domain: {...domain_preset, url: "{{GHPROXY_URL}}https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ads-all.mrs" },
+  ads_awavenue: {...domain_preset, url: GH_PROXY_PREFIX+"awa/AWAvenue-Ads-Rule-Clash.mrs" },
+  ads_domain: {...domain_preset, url: GH_PROXY_PREFIX+"category/ads-all.mrs" },
 
 }
 
