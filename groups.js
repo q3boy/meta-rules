@@ -22,7 +22,7 @@ const direct = ['🎯 直连', '🚀 默认代理']
 
 const base_groups = [
   {name: '🚀 默认代理', type: 'select', proxies: [...getSmartGroup('', '🚀 默认代理'), '🏠 回家穿透']},
-  {name: '🏠 回家穿透', type: 'select', 'include-all': true, filter: '(?i)(回家|直连)'},
+  {name: '🏠 回家穿透', type: 'select', proxies:['直连'], use:['GoHome']},
   {name: '🛑 广告', type: 'select', proxies: ['REJECT', ...direct]},
   {name: '🐟 漏网之鱼', type: 'select', proxies: getSmartGroup()},
 ]

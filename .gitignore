@@ -2,4 +2,6 @@ node_modules
 .env
 my-clash.yaml
 my-mihomo.yaml
+my-stash.yaml
+my-android.yaml
 my-sing-box.json
